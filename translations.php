@@ -187,6 +187,186 @@ $translations = [
         "en" => "Pen",
         "ru" => "Ручка",
         "tj" => "Қалам"
+    ],
+    "computer" => [
+        "uz" => "Kompyuter",
+        "en" => "Computer",
+        "ru" => "Компьютер",
+        "tj" => "Компютер"
+    ],
+    "phone" => [
+        "uz" => "Telefon",
+        "en" => "Phone",
+        "ru" => "Телефон",
+        "tj" => "Телефон"
+    ],
+    "city" => [
+        "uz" => "Shahar",
+        "en" => "City",
+        "ru" => "Город",
+        "tj" => "Шаҳр"
+    ],
+    "country" => [
+        "uz" => "Mamlakat",
+        "en" => "Country",
+        "ru" => "Страна",
+        "tj" => "Кишвар"
+    ],
+    "home" => [
+        "uz" => "Uy",
+        "en" => "Home",
+        "ru" => "Дом",
+        "tj" => "Хона"
+    ],
+    "car" => [
+        "uz" => "Mashina",
+        "en" => "Car",
+        "ru" => "Машина",
+        "tj" => "Мошин"
+    ],
+    "bus" => [
+        "uz" => "Avtobus",
+        "en" => "Bus",
+        "ru" => "Автобус",
+        "tj" => "Автобус"
+    ],
+    "train" => [
+        "uz" => "Poyezd",
+        "en" => "Train",
+        "ru" => "Поезд",
+        "tj" => "Қатор"
+    ],
+    "airplane" => [
+        "uz" => "Samolyot",
+        "en" => "Airplane",
+        "ru" => "Самолёт",
+        "tj" => "Ҳавопаймо"
+    ],
+    "hospital" => [
+        "uz" => "Kasalxona",
+        "en" => "Hospital",
+        "ru" => "Больница",
+        "tj" => "Беморхона"
+    ],
+    "doctor" => [
+        "uz" => "Shifokor",
+        "en" => "Doctor",
+        "ru" => "Доктор",
+        "tj" => "Табиб"
+    ],
+    "nurse" => [
+        "uz" => "Hamshira",
+        "en" => "Nurse",
+        "ru" => "Медсестра",
+        "tj" => "Парастор"
+    ],
+    "market" => [
+        "uz" => "Bozor",
+        "en" => "Market",
+        "ru" => "Рынок",
+        "tj" => "Бозор"
+    ],
+    "restaurant" => [
+        "uz" => "Restoran",
+        "en" => "Restaurant",
+        "ru" => "Ресторан",
+        "tj" => "Ресторан"
+    ],
+    "hotel" => [
+        "uz" => "Mehmonxona",
+        "en" => "Hotel",
+        "ru" => "Отель",
+        "tj" => "Меҳмонхона"
+    ],
+    "job" => [
+        "uz" => "Ish",
+        "en" => "Job",
+        "ru" => "Работа",
+        "tj" => "Кор"
+    ],
+    "language" => [
+        "uz" => "Til",
+        "en" => "Language",
+        "ru" => "Язык",
+        "tj" => "Забон"
+    ],
+    "computer_science" => [
+        "uz" => "Kompyuter ilmi",
+        "en" => "Computer science",
+        "ru" => "Информатика",
+        "tj" => "Илми компютер"
+    ],
+    "teacher_room" => [
+        "uz" => "O‘qituvchilar xonasi",
+        "en" => "Teacher's room",
+        "ru" => "Учительская",
+        "tj" => "Ҳуҷраи муаллим"
+    ],
+    "student_card" => [
+        "uz" => "Talaba guvohnomasi",
+        "en" => "Student card",
+        "ru" => "Студенческий билет",
+        "tj" => "Гувоҳномаи донишҷӯӣ"
+    ],
+    "window" => [
+        "uz" => "Deraza",
+        "en" => "Window",
+        "ru" => "Окно",
+        "tj" => "Тиреза"
+    ],
+    "door" => [
+        "uz" => "Eshik",
+        "en" => "Door",
+        "ru" => "Дверь",
+        "tj" => "Дара"
+    ],
+    "sun" => [
+        "uz" => "Quyosh",
+        "en" => "Sun",
+        "ru" => "Солнце",
+        "tj" => "Офтоб"
+    ],
+    "moon" => [
+        "uz" => "Oy",
+        "en" => "Moon",
+        "ru" => "Луна",
+        "tj" => "Моҳ"
+    ],
+    "star" => [
+        "uz" => "Yulduz",
+        "en" => "Star",
+        "ru" => "Звезда",
+        "tj" => "Ситора"
+    ],
+    "sky" => [
+        "uz" => "Osmondan",
+        "en" => "Sky",
+        "ru" => "Небо",
+        "tj" => "Осмон"
+    ],
+    "earth" => [
+        "uz" => "Yer",
+        "en" => "Earth",
+        "ru" => "Земля",
+        "tj" => "Замин"
+    ],
+    "fire" => [
+        "uz" => "Olov",
+        "en" => "Fire",
+        "ru" => "Огонь",
+        "tj" => "Оташ"
+    ],
+    "air" => [
+        "uz" => "Havo",
+        "en" => "Air",
+        "ru" => "Воздух",
+        "tj" => "Ҳаво"
+    ],
+    "love" => [
+        "uz" => "Sevgi",
+        "en" => "Love",
+        "ru" => "Любовь",
+        "tj" => "Ишқ"
     ]
 ];
 
