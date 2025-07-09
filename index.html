@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,11 +42,12 @@
 
         .lang-box {
             flex: 1 1 300px;
-            min-height: 200px;
+            min-height: 300px;
             background-color: white;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
         }
 
         .lang-1 {
@@ -61,11 +63,21 @@
         .lang-box h3 {
             margin-top: 0;
         }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
+
 <body>
 
-    <h1>Tanslation</h1>
+    <h1>🌐 Tarjimon Dasturi</h1>
 
     <div class="selectors">
         <select id="lang1">
@@ -86,40 +98,14 @@
     <div class="container">
         <div class="lang-box lang-1">
             <h3>Til 1:</h3>
-            <p id="text1">Salom</p>
+            <ul id="text1"></ul>
         </div>
         <div class="lang-box lang-2">
             <h3>Til 2:</h3>
-            <p id="text2">Hello</p>
+            <ul id="text2"></ul>
         </div>
     </div>
 
-    <script>
-        const translations = {
-            "hello": {
-                "uz": "Salom",
-                "en": "Hello",
-                "ru": "Привет",
-                "tj": "Салом"
-            }
-        };
-
-        const lang1 = document.getElementById('lang1');
-        const lang2 = document.getElementById('lang2');
-        const text1 = document.getElementById('text1');
-        const text2 = document.getElementById('text2');
-
-        function updateTexts() {
-            const l1 = lang1.value;
-            const l2 = lang2.value;
-            const wordKey = "hello"; // bu vaqtincha doimiy "hello", keyin inputdan keladigan so'z qo‘shamiz
-
-            text1.textContent = translations[wordKey][l1] || "Noma'lum";
-            text2.textContent = translations[wordKey][l2] || "Unknown";
-        }
-
-        lang1.addEventListener("change", updateTexts);
-        lang2.addEventListener("change", updateTexts);
-    </script>
 </body>
+
 </html>
