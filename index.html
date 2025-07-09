@@ -60,7 +60,6 @@
             "tj": "Тоҷикӣ"
         };
 
-        // Selectlarga option qo‘shish
         for (let key in langs) {
             let option1 = document.createElement('option');
             option1.value = key;
@@ -73,35 +72,46 @@
             lang2.append(option2);
         }
 
-        // Dastlabki tanlovlar
-        lang1.value = "uz";
-        lang2.value = "ru";
-        lang1Name.textContent = langs[lang1.value];
-        lang2Name.textContent = langs[lang2.value];
+        lang1.value = "en";
+        lang2.value = "uz";
 
-        // Til o‘zgarganda ishlovchi funksiyalar
-        lang1.addEventListener('change', () => {
-            if (lang1.value === lang2.value) {
-                swapLanguages("lang1");
-            }
+        function updateLanguages() {
+            data.lang1 = lang1.value;
+            data.lang2 = lang2.value;
+
             lang1Name.textContent = langs[lang1.value];
             lang2Name.textContent = langs[lang2.value];
-        });
 
-        lang2.addEventListener('change', () => {
-            if (lang1.value === lang2.value) {
-                swapLanguages("lang2");
-            }
-            lang1Name.textContent = langs[lang1.value];
-            lang2Name.textContent = langs[lang2.value];
-        });
+            loadTranslations();
+        }
+
+        let data = {
+            lang1: lang1.value,
+            lang2: lang2.value,
+        };
+
+        function loadTranslations() {
+            fetch('translations.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
 
         function swapLanguages(triggeredFrom) {
             if (triggeredFrom === "lang1") {
-                lang2.value = lang1.previousValue || "en";
+                lang2.value = lang1.previousValue;
             } else if (triggeredFrom === "lang2") {
-                lang1.value = lang2.previousValue || "en";
+                lang1.value = lang2.previousValue;
             }
+            updateLanguages();
         }
 
         lang1.addEventListener("focus", () => {
@@ -110,6 +120,24 @@
         lang2.addEventListener("focus", () => {
             lang2.previousValue = lang2.value;
         });
+
+        lang1.addEventListener('change', () => {
+            if (lang1.value === lang2.value) {
+                swapLanguages("lang1");
+            } else {
+                updateLanguages();
+            }
+        });
+
+        lang2.addEventListener('change', () => {
+            if (lang1.value === lang2.value) {
+                swapLanguages("lang2");
+            } else {
+                updateLanguages();
+            }
+        });
+
+        updateLanguages();
     </script>
 </body>
 

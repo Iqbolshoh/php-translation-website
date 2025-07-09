@@ -190,4 +190,41 @@ $translations = [
     ]
 ];
 
-echo json_encode($translations, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+$data = json_decode(file_get_contents('php://input'), true);
+
+if (isset($data['lang1']) && isset($data['lang2'])) {
+    $lang1 = $data['lang1'];
+    $lang2 = $data['lang2'];
+
+    $result = [];
+
+    $firstWord = reset($translations);
+    if (!array_key_exists($lang1, $firstWord) || !array_key_exists($lang2, $firstWord)) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Invalid language codes provided.'
+        ]);
+        exit;
+    }
+
+    foreach ($translations as $key => $value) {
+        if (isset($value[$lang1]) && isset($value[$lang2])) {
+            $result[] = [$lang1 => $value[$lang1], $lang2 => $value[$lang2]];
+        }
+    }
+
+    echo json_encode([
+        'success' => true,
+        'message' => 'Translations retrieved successfully',
+        'data' => $result
+    ]);
+    exit;
+
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Invalid request. Please provide all parameters.'
+    ]);
+    exit;
+}
+// echo json_encode($translations, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
