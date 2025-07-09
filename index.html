@@ -12,41 +12,31 @@
     <div class="app-container">
         <header>
             <h1>Translator</h1>
-            <p class="subtitle">Translate words and phrases between 4 languages</p>
+            <p class="subtitle">Translate words and phrases</p>
         </header>
 
         <div class="language-selectors">
             <div class="select-container">
                 <label for="lang1">First language</label>
-                <select id="lang1">
-                    <option value="en">English</option>
-                    <option value="ru">Русский</option>
-                    <option value="uz">O'zbekcha</option>
-                    <option value="tj">Тоҷикӣ</option>
-                </select>
+                <select id="lang1"></select>
             </div>
 
             <div class="select-container">
                 <label for="lang2">Second language</label>
-                <select id="lang2">
-                    <option value="en">English</option>
-                    <option value="ru">Русский</option>
-                    <option value="uz" selected>O'zbekcha</option>
-                    <option value="tj">Тоҷикӣ</option>
-                </select>
+                <select id="lang2"></select>
             </div>
         </div>
 
         <div class="translation-container">
             <div class="translation-box box-1">
                 <h3>
-                    <span id="lang1-name">English</span>
+                    <span id="lang1-name"></span>
                 </h3>
                 <ul class="word-list" id="text1"></ul>
             </div>
             <div class="translation-box box-2">
                 <h3>
-                    <span id="lang2-name">O'zbekcha</span>
+                    <span id="lang2-name"></span>
                 </h3>
                 <ul class="word-list" id="text2"></ul>
             </div>
@@ -57,6 +47,70 @@
         </footer>
     </div>
 
+    <script>
+        let lang1 = document.querySelector('#lang1');
+        let lang2 = document.querySelector('#lang2');
+        let lang1Name = document.querySelector('#lang1-name');
+        let lang2Name = document.querySelector('#lang2-name');
+
+        const langs = {
+            "en": "English",
+            "ru": "Русский",
+            "uz": "O'zbekcha",
+            "tj": "Тоҷикӣ"
+        };
+
+        // Selectlarga option qo‘shish
+        for (let key in langs) {
+            let option1 = document.createElement('option');
+            option1.value = key;
+            option1.textContent = langs[key];
+            lang1.append(option1);
+
+            let option2 = document.createElement('option');
+            option2.value = key;
+            option2.textContent = langs[key];
+            lang2.append(option2);
+        }
+
+        // Dastlabki tanlovlar
+        lang1.value = "uz";
+        lang2.value = "ru";
+        lang1Name.textContent = langs[lang1.value];
+        lang2Name.textContent = langs[lang2.value];
+
+        // Til o‘zgarganda ishlovchi funksiyalar
+        lang1.addEventListener('change', () => {
+            if (lang1.value === lang2.value) {
+                swapLanguages("lang1");
+            }
+            lang1Name.textContent = langs[lang1.value];
+            lang2Name.textContent = langs[lang2.value];
+        });
+
+        lang2.addEventListener('change', () => {
+            if (lang1.value === lang2.value) {
+                swapLanguages("lang2");
+            }
+            lang1Name.textContent = langs[lang1.value];
+            lang2Name.textContent = langs[lang2.value];
+        });
+
+        function swapLanguages(triggeredFrom) {
+            if (triggeredFrom === "lang1") {
+                lang2.value = lang1.previousValue || "en";
+            } else if (triggeredFrom === "lang2") {
+                lang1.value = lang2.previousValue || "en";
+            }
+        }
+
+        lang1.addEventListener("focus", () => {
+            lang1.previousValue = lang1.value;
+        });
+        lang2.addEventListener("focus", () => {
+            lang2.previousValue = lang2.value;
+        });
+    </script>
 </body>
 
 </html>
