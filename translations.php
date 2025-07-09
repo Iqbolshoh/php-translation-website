@@ -227,4 +227,3 @@ if (isset($data['lang1']) && isset($data['lang2'])) {
     ]);
     exit;
 }
-// echo json_encode($translations, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

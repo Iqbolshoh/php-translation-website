@@ -52,6 +52,8 @@
         let lang2 = document.querySelector('#lang2');
         let lang1Name = document.querySelector('#lang1-name');
         let lang2Name = document.querySelector('#lang2-name');
+        const text1 = document.querySelector('#text1');
+        const text2 = document.querySelector('#text2');
 
         const langs = {
             "en": "English",
@@ -98,7 +100,27 @@
             })
                 .then(response => response.json())
                 .then(result => {
-                    console.log(result);
+                    text1.textContent = ''
+                    text2.textContent = ''
+
+                    result.data.forEach(word => {
+                        console.log(word)
+
+                        let word1 = word[lang1.value]
+                        let word2 = word[lang2.value]
+
+                        const li1 = document.createElement('li');
+                        const li2 = document.createElement('li');
+
+                        li1.className = 'word-item';
+                        li2.className = 'word-item';
+
+                        li1.innerHTML = `<span class="word">${word1}</span>`;
+                        li2.innerHTML = `<span class="word">${word2}</span>`;
+
+                        text1.appendChild(li1);
+                        text2.appendChild(li2);
+                    });
                 })
                 .catch(error => {
                     console.error('Error:', error);
