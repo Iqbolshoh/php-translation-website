@@ -244,11 +244,9 @@ footer {
         font-size: 2rem;
     }
 
-    .translation-container {
-        flex-direction: column;
-    }
-
     .translation-box {
-        min-width: 100%;
+        width: 50% !important;
+        min-width: 0px;
+        padding: 2rem 3px;
     }
 }
