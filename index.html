@@ -1,73 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tarjimon</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #dff6fd, #fff0d1);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .selectors {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        select {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
         }
 
         .container {
             display: flex;
-            align-items: center;
-            width: calc(100% - 40px);
-            margin: 0 auto;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .lang-1,
-        .lang-2 {
-            width: 50%;
-            height: 200px;
-            margin: 10px;
+        .lang-box {
+            flex: 1 1 300px;
+            min-height: 200px;
+            background-color: white;
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .lang-1 {
             background-color: #46adf7;
+            color: white;
         }
 
         .lang-2 {
             background-color: #f5a82c;
+            color: white;
+        }
+
+        .lang-box h3 {
+            margin-top: 0;
         }
     </style>
 </head>
-
 <body>
 
-    <form>
-        <select name="lang_1">
+    <h1>Tanslation</h1>
+
+    <div class="selectors">
+        <select id="lang1">
             <option value="en">English</option>
-            <option value="uz">O'zbekcha</option>
             <option value="ru">Русский</option>
-        </select>
-        <select name="lang_2">
-            <option value="en">English</option>
             <option value="uz">O'zbekcha</option>
-            <option value="ru">Русский</option>
+            <option value="tj">Тоҷикӣ</option>
         </select>
 
-        <button type="submit">Yuborish</button>
-    </form>
-
-
-
-    <div class="container">
-        <div class="lang-1"></div>
-        <div class="lang-2"></div>
+        <select id="lang2">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="uz">O'zbekcha</option>
+            <option value="tj">Тоҷикӣ</option>
+        </select>
     </div>
 
-</body>
+    <div class="container">
+        <div class="lang-box lang-1">
+            <h3>Til 1:</h3>
+            <p id="text1">Salom</p>
+        </div>
+        <div class="lang-box lang-2">
+            <h3>Til 2:</h3>
+            <p id="text2">Hello</p>
+        </div>
+    </div>
 
+    <script>
+        const translations = {
+            "hello": {
+                "uz": "Salom",
+                "en": "Hello",
+                "ru": "Привет",
+                "tj": "Салом"
+            }
+        };
+
+        const lang1 = document.getElementById('lang1');
+        const lang2 = document.getElementById('lang2');
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+
+        function updateTexts() {
+            const l1 = lang1.value;
+            const l2 = lang2.value;
+            const wordKey = "hello"; // bu vaqtincha doimiy "hello", keyin inputdan keladigan so'z qo‘shamiz
+
+            text1.textContent = translations[wordKey][l1] || "Noma'lum";
+            text2.textContent = translations[wordKey][l2] || "Unknown";
+        }
+
+        lang1.addEventListener("change", updateTexts);
+        lang2.addEventListener("change", updateTexts);
+    </script>
+</body>
 </html>

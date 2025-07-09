@@ -5,128 +5,189 @@ $translations = [
     "hello" => [
         "uz" => "Salom",
         "en" => "Hello",
-        "ru" => "Привет"
+        "ru" => "Привет",
+        "tj" => "Салом"
     ],
     "goodbye" => [
         "uz" => "Xayr",
         "en" => "Goodbye",
-        "ru" => "Пока"
+        "ru" => "Пока",
+        "tj" => "Хайр"
     ],
     "thank_you" => [
         "uz" => "Rahmat",
         "en" => "Thank you",
-        "ru" => "Спасибо"
+        "ru" => "Спасибо",
+        "tj" => "Ташаккур"
     ],
     "please" => [
         "uz" => "Iltimos",
         "en" => "Please",
-        "ru" => "Пожалуйста"
+        "ru" => "Пожалуйста",
+        "tj" => "Илтимос"
     ],
     "yes" => [
         "uz" => "Ha",
         "en" => "Yes",
-        "ru" => "Да"
+        "ru" => "Да",
+        "tj" => "Бале"
     ],
     "no" => [
         "uz" => "Yo‘q",
         "en" => "No",
-        "ru" => "Нет"
+        "ru" => "Нет",
+        "tj" => "Не"
     ],
     "how_are_you" => [
         "uz" => "Qalaysiz?",
         "en" => "How are you?",
-        "ru" => "Как дела?"
+        "ru" => "Как дела?",
+        "tj" => "Чӣ хелӣ?"
     ],
     "good_morning" => [
         "uz" => "Xayrli tong",
         "en" => "Good morning",
-        "ru" => "Доброе утро"
+        "ru" => "Доброе утро",
+        "tj" => "Субҳи хайр"
     ],
     "good_night" => [
         "uz" => "Xayrli tun",
         "en" => "Good night",
-        "ru" => "Спокойной ночи"
+        "ru" => "Спокойной ночи",
+        "tj" => "Шаби хуш"
     ],
     "welcome" => [
         "uz" => "Xush kelibsiz",
         "en" => "Welcome",
-        "ru" => "Добро пожаловать"
+        "ru" => "Добро пожаловать",
+        "tj" => "Хуш омадед"
     ],
     "sorry" => [
         "uz" => "Kechirasiz",
         "en" => "Sorry",
-        "ru" => "Извините"
+        "ru" => "Извините",
+        "tj" => "Бубахшед"
     ],
     "excuse_me" => [
         "uz" => "Kechirasiz",
         "en" => "Excuse me",
-        "ru" => "Простите"
+        "ru" => "Простите",
+        "tj" => "Маъзур бошед"
     ],
     "what_is_your_name" => [
         "uz" => "Ismingiz nima?",
         "en" => "What is your name?",
-        "ru" => "Как вас зовут?"
+        "ru" => "Как вас зовут?",
+        "tj" => "Номи шумо чист?"
     ],
     "my_name_is" => [
         "uz" => "Mening ismim...",
         "en" => "My name is...",
-        "ru" => "Меня зовут..."
+        "ru" => "Меня зовут...",
+        "tj" => "Номи ман ..."
     ],
     "nice_to_meet_you" => [
         "uz" => "Tanishganimdan xursandman",
         "en" => "Nice to meet you",
-        "ru" => "Приятно познакомиться"
+        "ru" => "Приятно познакомиться",
+        "tj" => "Шодам аз шиносоӣ"
     ],
     "i_love_you" => [
         "uz" => "Men seni sevaman",
         "en" => "I love you",
-        "ru" => "Я тебя люблю"
+        "ru" => "Я тебя люблю",
+        "tj" => "Ман туро дӯст медорам"
     ],
     "help" => [
         "uz" => "Yordam bering",
         "en" => "Help",
-        "ru" => "Помогите"
+        "ru" => "Помогите",
+        "tj" => "Кумак кунед"
     ],
     "stop" => [
         "uz" => "To‘xta",
         "en" => "Stop",
-        "ru" => "Стоп"
+        "ru" => "Стоп",
+        "tj" => "Ист"
     ],
     "wait" => [
         "uz" => "Kut",
         "en" => "Wait",
-        "ru" => "Подожди"
+        "ru" => "Подожди",
+        "tj" => "Интизор шав"
     ],
     "where_is" => [
         "uz" => "Qayerda?",
         "en" => "Where is...?",
-        "ru" => "Где...?"
+        "ru" => "Где...?",
+        "tj" => "Дар куҷост?"
     ],
     "bathroom" => [
         "uz" => "Hammom",
         "en" => "Bathroom",
-        "ru" => "Ванная"
+        "ru" => "Ванная",
+        "tj" => "Ҳаммом"
     ],
     "food" => [
         "uz" => "Oziq-ovqat",
         "en" => "Food",
-        "ru" => "Еда"
+        "ru" => "Еда",
+        "tj" => "Хӯрок"
     ],
     "water" => [
         "uz" => "Suv",
         "en" => "Water",
-        "ru" => "Вода"
+        "ru" => "Вода",
+        "tj" => "Об"
     ],
     "money" => [
         "uz" => "Pul",
         "en" => "Money",
-        "ru" => "Деньги"
+        "ru" => "Деньги",
+        "tj" => "Пул"
     ],
     "friend" => [
         "uz" => "Do‘st",
         "en" => "Friend",
-        "ru" => "Друг"
+        "ru" => "Друг",
+        "tj" => "Дӯст"
+    ],
+    "family" => [
+        "uz" => "Oila",
+        "en" => "Family",
+        "ru" => "Семья",
+        "tj" => "Оила"
+    ],
+    "school" => [
+        "uz" => "Maktab",
+        "en" => "School",
+        "ru" => "Школа",
+        "tj" => "Мактаб"
+    ],
+    "teacher" => [
+        "uz" => "O‘qituvchi",
+        "en" => "Teacher",
+        "ru" => "Учитель",
+        "tj" => "Муаллим"
+    ],
+    "student" => [
+        "uz" => "O‘quvchi",
+        "en" => "Student",
+        "ru" => "Ученик",
+        "tj" => "Шогирд"
+    ],
+    "book" => [
+        "uz" => "Kitob",
+        "en" => "Book",
+        "ru" => "Книга",
+        "tj" => "Китоб"
+    ],
+    "pen" => [
+        "uz" => "Ruchka",
+        "en" => "Pen",
+        "ru" => "Ручка",
+        "tj" => "Қалам"
     ]
 ];
 
-echo json_encode($translations);
+echo json_encode($translations, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
