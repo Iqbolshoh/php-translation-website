@@ -49,14 +49,18 @@
         </footer>
     </div>
 
+    <!-- jQuery (required for Toastr) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
+        // Configure Toastr options
         toastr.options = {
-            "closeButton": true,
-            "progressBar": true,
-            "positionClass": "toast-top-right",
-            "timeOut": "3000"
+            closeButton: true,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: "3000",
+            preventDuplicates: true
         };
 
         let lang1 = document.querySelector('#lang1');
@@ -73,6 +77,7 @@
             "tj": "Тоҷикӣ"
         };
 
+        // Populate language dropdowns
         for (let key in langs) {
             let option1 = document.createElement('option');
             option1.value = key;
@@ -88,20 +93,19 @@
         lang1.value = "en";
         lang2.value = "uz";
 
-        function updateLanguages() {
+        let data = {
+            lang1: lang1.value,
+            lang2: lang2.value
+        };
+
+        function updateLanguages(triggeredFrom = null) {
             data.lang1 = lang1.value;
             data.lang2 = lang2.value;
 
             lang1Name.textContent = langs[lang1.value];
             lang2Name.textContent = langs[lang2.value];
-
             loadTranslations();
         }
-
-        let data = {
-            lang1: lang1.value,
-            lang2: lang2.value,
-        };
 
         function loadTranslations() {
             fetch('translations.php', {
@@ -109,7 +113,12 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(result => {
                     if (result.success === true) {
                         text1.textContent = '';
@@ -131,14 +140,14 @@
                             text1.appendChild(li1);
                             text2.appendChild(li2);
                         });
-                        toastr.success('Translations loaded successfully!', 'Success');
+                        toastr.success(result.message, 'Success');
                     } else {
-                        toastr.error('Failed to load translations.', 'Error');
+                        toastr.error(result.messag, 'Error');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    toastr.error('An error occurred while fetching translations.', 'Error');
+                    toastr.error(`Failed to fetch translations: ${error.message}`, 'Error');
                 });
         }
 
@@ -148,6 +157,7 @@
             } else if (triggeredFrom === "lang2") {
                 lang1.value = lang2.previousValue;
             }
+            toastr.info('Languages swapped', 'Swap');
             updateLanguages();
         }
 
@@ -162,7 +172,7 @@
             if (lang1.value === lang2.value) {
                 swapLanguages("lang1");
             } else {
-                updateLanguages();
+                updateLanguages("lang1");
             }
         });
 
@@ -170,7 +180,7 @@
             if (lang1.value === lang2.value) {
                 swapLanguages("lang2");
             } else {
-                updateLanguages();
+                updateLanguages("lang2");
             }
         });
 
