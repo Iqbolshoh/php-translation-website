@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Translator</title>
     <link rel="stylesheet" href="./src/css/styles.css" />
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -43,11 +45,20 @@
         </div>
 
         <footer>
-            Translator software &copy; 2025 | All rights reserved
+            Translator software © 2025 | All rights reserved
         </footer>
     </div>
 
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000"
+        };
+
         let lang1 = document.querySelector('#lang1');
         let lang2 = document.querySelector('#lang2');
         let lang1Name = document.querySelector('#lang1-name');
@@ -100,28 +111,34 @@
             })
                 .then(response => response.json())
                 .then(result => {
-                    text1.textContent = ''
-                    text2.textContent = ''
+                    if (result.success === true) {
+                        text1.textContent = '';
+                        text2.textContent = '';
 
-                    result.data.forEach(word => {
-                        let word1 = word[lang1.value]
-                        let word2 = word[lang2.value]
+                        result.data.forEach(word => {
+                            let word1 = word[lang1.value];
+                            let word2 = word[lang2.value];
 
-                        const li1 = document.createElement('li');
-                        const li2 = document.createElement('li');
+                            const li1 = document.createElement('li');
+                            const li2 = document.createElement('li');
 
-                        li1.className = 'word-item';
-                        li2.className = 'word-item';
+                            li1.className = 'word-item';
+                            li2.className = 'word-item';
 
-                        li1.innerHTML = `<span class="word">${word1}</span>`;
-                        li2.innerHTML = `<span class="word">${word2}</span>`;
+                            li1.innerHTML = `<span class="word">${word1}</span>`;
+                            li2.innerHTML = `<span class="word">${word2}</span>`;
 
-                        text1.appendChild(li1);
-                        text2.appendChild(li2);
-                    });
+                            text1.appendChild(li1);
+                            text2.appendChild(li2);
+                        });
+                        toastr.success('Translations loaded successfully!', 'Success');
+                    } else {
+                        toastr.error('Failed to load translations.', 'Error');
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    toastr.error('An error occurred while fetching translations.', 'Error');
                 });
         }
 
